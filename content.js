@@ -6,7 +6,7 @@ function getHTML(){
 }
 console.log(getText());             //Gives you all the text on the page
 console.log(getHTML());             //Gives you the whole HTML of the page
-
+);
 
 chrome.extension.onMessage.addListener(
     function(request, sender, sendResponse) {
@@ -14,4 +14,3 @@ chrome.extension.onMessage.addListener(
             sendResponse({data: document.all[0].innerText, method: "getText"}); //same as innerText
         }
     }
-);
