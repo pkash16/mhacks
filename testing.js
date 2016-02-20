@@ -28,7 +28,7 @@ $(document).ready(function(){
 
 
 $('#btn_start').click(function(){
-	 chrome.tabs.create({'url': chrome.extension.getURL('solver.html')}, function(tab) {
+	 chrome.tabs.create({'url': chrome.extension.getURL('solver.html?emails=' + $('#emails').val())}, function(tab) {
         // Tab opened.
     });
 });
