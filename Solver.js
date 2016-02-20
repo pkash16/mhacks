@@ -1,4 +1,4 @@
-var name = "Pmoney";
+var name = "Sohil";
 var year;
 var month;
 var day;
@@ -22,24 +22,32 @@ function myJsFunction(){
 	timez.push(new Date(year,month,day,hour1,hour2,10,01));
 	document.write(timez[0])
 
-	var myFirebaseRef = new Firebase("https://torrid-fire-8164.firebaseio.com/events1/date");
+	var myFirebaseRef = new Firebase("https://torrid-fire-8164.firebaseio.com/Events");
 	/*myFirebaseRef.push({
 		name: name,
 		value: timez[0].toString()
 	});
  */
- var usersRef = myFirebaseRef.child("users");
-usersRef.set({
-  event1: {
-		name: name,
-		value: timez[0].toString()
-  }
-});
+	var usersRef = myFirebaseRef.child("dates");
 
-	var hopperRef = usersRef.child("event1");
-	hopperRef.update({
-		"value2": "Amazing Grace"
-	});
+	if(usersRef != null) {
+
+		var hopperRef = usersRef.child("event1");
+		hopperRef.update({
+			"value2": timez[0].toDateString()
+		});
+	}
+
+	if(usersRef != null) {
+
+		usersRef.set({
+			event1: {
+				name: name,
+				value: timez[0].toDateString()
+			}
+		});
+	}
+
 
  }
 
