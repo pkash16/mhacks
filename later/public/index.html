@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+<head>
+	<title>
+	 Later. Never have to deal with scheduling problems ever again.
+	</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+	<script src="main.js"></script>
+</head>
+<body ng-controller = "MainController">
+
+<button ng-click="login()"> {{ button_text }} </button> <br>
+
+
+<h3 class = 'well'> List your potential schedule conflicts, or log in to Google Calendar </h3>
+
+<p ng-repeat = "n in range(0,num_conflicts)">
+Schedule Conflict {{ n }}
+<br>
+<input type = "date" id="date-initial">
+<input type = "time" id = "time-initial">
+final
+<input type = "date" id = "date-final">
+<input type = "time" id = "time-final">
+
+<br>
+
+</p>
+
+<button ng-click="submit()">Submit</button>
+<button ng-click="add_conflict()">Add Conflict</button>
+
+</body>
+</html>
