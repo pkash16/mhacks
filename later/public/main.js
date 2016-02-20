@@ -18,8 +18,12 @@ app.controller("MainController", function($scope, $firebaseAuth){
 
 	$scope.add_conflict = function(){
 		$scope.num_conflicts ++;
+		var date_init = document.getElementById("date-initial");
+		var time_init = document.getElementById("time-initial");
 		
-	};	
+		var date_final = document.getElementById("date-final");
+		var time_final = document.getElementById("time-final");
+		};	
 
 	$scope.range = function(min, max, step) {
 	    step = step || 1;
