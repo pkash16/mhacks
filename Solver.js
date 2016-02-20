@@ -1,9 +1,14 @@
 var name = "Sohil";
-var year;
-var month;
-var day;
-var hour1;
-var hour2;
+var iyear;
+var imonth;
+var iday;
+var ihour;
+var iminute;
+var fyear;
+var fmonth;
+var fday;
+var fhour;
+var fminute;
 
 var timez = [];
 
@@ -11,30 +16,42 @@ var myFirebaseRef = new Firebase("https://torrid-fire-8164.firebaseio.com/Events
 
 
 function myJsFunction(){
-     year = document.getElementById('input1').value;
-	 month = document.getElementById('input2').value;
-	 day = document.getElementById('input3').value;
-	 hour1 = document.getElementById('input4').value;
-	 hour2 = document.getElementById('input5').value;
-	timez.push(new Date(year,month,day,hour1,hour2,10,01));
+	iyear = document.getElementById('input1').value;
+	imonth = document.getElementById('input2').value;
+	iday = document.getElementById('input3').value;
+	ihour = document.getElementById('input4').value;
+	iminute = document.getElementById('input5').value;
+	fyear = document.getElementById('input6').value;
+	fmonth = document.getElementById('input7').value;
+	fday = document.getElementById('input8').value;
+	fhour = document.getElementById('input9').value;
+	fminute = document.getElementById('input10').value;
+	timez.push(new Date(iyear,imonth,iday,ihour,iminute,01,01));
+	timez.push(new Date(fyear,fmonth,fday,fhour,fminute,01,01));
 	document.write(timez[0]);
+	document.write(timez[1]);
 
 
 
-	var usersRef = myFirebaseRef.child("Dates");
 
+       var randomseed = Math.floor((Math.random() * 1000) + 1);
+        var usersRef = myFirebaseRef.child(randomseed);
 
-	var randomseed = Math.floor((Math.random() * 1000) + 1);
-		var hopperRef = usersRef.child(randomseed);
-		hopperRef.set({
-			"value": timez[0].toDateString()
-		});
+            var hopperRef = usersRef.child(name);
+            hopperRef.set({
+                "name" : name,
+                "itime": timez[0].toDateString(),
+                "ftime": timez[1].toDateString()
+            });
 
-		var superref = hopperRef;
-		superref.update({
-		"value2": timez[0].toDateString()
-	});
+	//FOR CREATTED DB
 
+//         var superref = hopperRef;
+  //          superref.update({
+	//			"name" : name,
+	//			"itime": timez[0].toDateString(),
+	//			"ftime": timez[1].toDateString()
+      //  });
 
  }
 
