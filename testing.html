@@ -17,19 +17,15 @@
         max-width: 400px;
       }
     </style>
+<script src = "jquery-1.12.0.min.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 <script src = "testing.js" ></script>
 </head>
 <body>
 	<div id = "status">Enter Dates and Times you aren't available.</div>
 	
-	start:
-	<input type="date" name="date-start" >
-	<input type="time" name = "time-start"> <br>
-	end:
-	<input type="date" name="date-end" >
-	<input type="time" name = "time-end"> <br>
-
-	<button type="button">Add Times...</button>
+	<button id ="btn_start" type="button">Start a new Event...</button>
+	<button id = "btn_join" type ="button">Join an existing Event... </button>
 </body>
 
 
