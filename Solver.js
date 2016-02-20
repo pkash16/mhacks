@@ -1,4 +1,4 @@
-var name = "Sohil";
+var name = "Pmoney";
 var year;
 var month;
 var day;
@@ -20,26 +20,26 @@ function myJsFunction(){
 	 hour1 = document.getElementById('input4').value;
 	 hour2 = document.getElementById('input5').value;
 	timez.push(new Date(year,month,day,hour1,hour2,10,01));
-	document.write(timez[0])
+	document.write(timez[0]);
 
 	var myFirebaseRef = new Firebase("https://torrid-fire-8164.firebaseio.com/Events");
-	/*myFirebaseRef.push({
-		name: name,
-		value: timez[0].toString()
-	});
- */
-	var usersRef = myFirebaseRef.child("dates");
 
-	if(usersRef != null) {
 
-		var hopperRef = usersRef.child("event1");
-		hopperRef.update({
-			"value2": timez[0].toDateString()
+	var usersRef = myFirebaseRef.child("Dates");
+
+
+	var randomseed = Math.floor((Math.random() * 1000) + 1);
+		var hopperRef = usersRef.child(randomseed);
+		hopperRef.set({
+			"value": timez[0].toDateString()
 		});
-	}
 
-	if(usersRef != null) {
+		var superref = hopperRef;
+		superref.update({
+		"value2": timez[0].toDateString()
+	});
 
+	/*if(usersRef != null) {
 		usersRef.set({
 			event1: {
 				name: name,
@@ -47,7 +47,7 @@ function myJsFunction(){
 			}
 		});
 	}
-
+*/
 
  }
 
