@@ -4,12 +4,32 @@
 <head>
 
 <title>Strange Title</title>
+ <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+      }
+      #status {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 400px;
+      }
+    </style>
 <script src = "testing.js" ></script>
 </head>
-
 <body>
-	<div id = "status">I'm testing stuff.</div>
-	<img id = "image-result" hidden> 
+	<div id = "status">Enter Dates and Times you aren't available.</div>
+	
+	start:
+	<input type="date" name="date-start" >
+	<input type="time" name = "time-start"> <br>
+	end:
+	<input type="date" name="date-end" >
+	<input type="time" name = "time-end"> <br>
+
+	<button type="button">Add Times...</button>
 </body>
 
 
