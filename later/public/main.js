@@ -56,6 +56,9 @@ app.controller("MainController", function($scope, $firebaseAuth){
 		var colon2 = ftime.indexOf(':') + 6;
 		ftime = ftime.slice(0,colon2);
 
+		if(document.getElementById("groupcode") != null){
+			group_code = document.getElementById("groupcode").value;
+		}
 
 		ref.child(group_code).child($scope.logged_in_status).set({"itime" : itime , "ftime": ftime}); 
 
