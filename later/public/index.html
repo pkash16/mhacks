@@ -20,15 +20,17 @@
 <p ng-repeat = "n in range(0,num_conflicts)">
 Schedule Conflict {{ n }}
 <br>
-<input type = "date" id="date-initial">
-<input type = "time" id = "time-initial">
+<input type = "date" ng-model="dates[n].dateInitial">
+<input type = "time" ng-model="dates[n].timeInitial">
 final
-<input type = "date" id = "date-final">
-<input type = "time" id = "time-final">
+<input type = "date"  ng-model="dates[n].dateFinal">
+<input type = "time" ng-model="dates[n].timeFinal">
 
 <br>
 
 </p>
+{{dates}}
+
 
 <button ng-click="submit()">Submit</button>
 <button ng-click="add_conflict()">Add Conflict</button>
