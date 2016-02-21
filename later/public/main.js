@@ -19,7 +19,13 @@ app.controller("MainController", function($scope, $firebaseAuth){
 	}
 
 	$scope.add_conflict = function(){
-		if($scope.logged_in_status != null){
+		//if($scope.logged_in_status != null){
+
+		if($scope.logged_in_status == null){
+			$scope.logged_in_status = "dummy id, google failed for debugging";
+		}
+
+
 		$scope.num_conflicts ++;
 		var date_init = document.getElementById("date-initial");
 		var time_init = document.getElementById("time-initial");
@@ -29,9 +35,12 @@ app.controller("MainController", function($scope, $firebaseAuth){
 		
 		var group_code = ID();
 		ref.child(group_code).child($scope.logged_in_status).set({"itime":date_init.value + '-' + time_init.value, "ftime": date_final.value + '-' + time_final.value });
-		}else{
-			alert("you need to log in with google first!");
-		}
+		//}
+
+		/*else{
+			//alert("you need to log in with google first!");
+
+		}*/
 
 		};	
 
