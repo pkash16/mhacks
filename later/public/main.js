@@ -8,6 +8,7 @@ app.controller("MainController", function($scope, $firebaseAuth){
 	$scope.num_conflicts = 0;
 
 	$scope.dates = {};
+	$scope.groupcode ="";
 
 	$scope.button_text = 'Log In!';
 	$scope.login = function(){
