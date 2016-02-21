@@ -20,23 +20,20 @@ app.controller("MainController", function($scope, $firebaseAuth){
 	  console.error("Authentication failed:", error);
 	});
 	}
+	var ID = function(){
+		return '_' + Math.random().toString(36).substr(2,9);
+	}
+	var group_code = ID();
 
 	$scope.add_conflict = function(){
 		//if($scope.logged_in_status != null){
 
 		if($scope.logged_in_status == null){
-			$scope.logged_in_status = "dummy id, google failed for debugging";
+			$scope.logged_in_status = "dummy id, google failed for debuggin";
 		}
 
 
 		$scope.num_conflicts ++;
-	/*	var date_init = document.getElementById("date-initial");
-		var time_init = document.getElementById("time-initial");
-		
-		var date_final = document.getElementById("date-final");
-		var time_final = document.getElementById("time-final");*/
-		
-		var group_code = ID();
 
 		var itime = $scope.dates[$scope.num_conflicts-1].dateInitial + '-' + $scope.dates[$scope.num_conflicts-1].timeInitial;
 
@@ -57,20 +54,21 @@ app.controller("MainController", function($scope, $firebaseAuth){
 		var colon2 = ftime.indexOf(':') + 6;
 		ftime = ftime.slice(0,colon2);
 
-		if(!isEmpty(document.getElementById("groupcode").value)){
+		if(!isEmpty(document.getElementById("groupcode").value) && document.getElementById("groupcode").disabled == false){
 			group_code = document.getElementById("groupcode").value;
 			alert(group_code);
 		}
 
-		ref.child(group_code).child($scope.logged_in_status).set({"itime" : itime , "ftime": ftime}); 
+		document.getElementById("groupcode").value = group_code;
+		document.getElementById("groupcode").disabled = true;
+
+		ref.child(group_code).child($scope.logged_in_status).child($scope.num_conflicts).set({"itime" : itime , "ftime": ftime}); 
 
 
 		//ref.child(group_code).child($scope.logged_in_status).set({"itime":date_init.value + '-' + time_init.value, "ftime": date_final.value + '-' + time_final.value });
 		
 
-		//}
-
-		/*else{
+		/*}else{
 			//alert("you need to log in with google first!");
 
 		}*/
