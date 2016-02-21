@@ -57,8 +57,9 @@ app.controller("MainController", function($scope, $firebaseAuth){
 		var colon2 = ftime.indexOf(':') + 6;
 		ftime = ftime.slice(0,colon2);
 
-		if(document.getElementById("groupcode") != null){
+		if(!isEmpty(document.getElementById("groupcode").value)){
 			group_code = document.getElementById("groupcode").value;
+			alert(group_code);
 		}
 
 		ref.child(group_code).child($scope.logged_in_status).set({"itime" : itime , "ftime": ftime}); 
@@ -105,6 +106,8 @@ app.controller("MainController", function($scope, $firebaseAuth){
 		return string;
 	}
 
-
+	function isEmpty(str){
+	    return !str.replace(/^\s+/g, '').length; // boolean (`true` if field is empty)
+	}
 
 })
