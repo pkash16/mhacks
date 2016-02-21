@@ -60,7 +60,8 @@ function myJsFunction(){
 
 // Attach an asynchronous callback to read the data at our posts reference
 	ref.on("value", function(snapshot) {
-		document.write(snapshot.valueOf().toString());
+		var output = JSON.stringify(snapshot.val())
+		document.write(output);
 	}, function (errorObject) {
 		document.write("The read failed: " + errorObject.code);
 	});
