@@ -2,7 +2,7 @@ var ref = new Firebase("https://schedulepicker.firebaseio.com/")
 var app = angular.module("myApp", ["firebase"]);
 
 
-app.controller("MainController", function($scope, $firebaseAuth){
+app.controller("MainController", function($scope, $firebaseAuth, $firebaseArray){
 	$scope.authObj = $firebaseAuth(ref);
 	$scope.num_conflicts = 0;
 
@@ -23,6 +23,10 @@ app.controller("MainController", function($scope, $firebaseAuth){
 		
 		var date_final = document.getElementById("date-final");
 		var time_final = document.getElementById("time-final");
+		
+		alert(date_init.value);
+
+
 		};	
 
 	$scope.range = function(min, max, step) {
